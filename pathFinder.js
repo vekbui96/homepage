@@ -3,14 +3,15 @@ let w = 10;
 
 let states = [];
 
+
 function setup() {
-  createCanvas(windowWidth/2, windowHeight);
+  createCanvas(windowWidth/2, 300);
   values = new Array(floor(width / w));
   for (let i = 0; i < values.length; i++) {
     values[i] = random(height);
     states[i] = -1;
   }
-  quickSort(values, 0, values.length - 1);
+  //quickSort(values, 0, values.length - 1);
 }
 
 async function quickSort(arr, start, end) {
@@ -54,7 +55,7 @@ async function partition(arr, start, end) {
 }
 
 function draw() {
-  background(0);
+  background(51);
 
   for (let i = 0; i < values.length; i++) {
     noStroke();
