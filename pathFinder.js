@@ -11,8 +11,28 @@ function setup() {
     values[i] = random(height);
     states[i] = -1;
   }
-  //quickSort(values, 0, values.length - 1);
 }
+
+// async function bubblesort(){
+//   if (i < values.length){
+//     for ( let j = 0; j < values.length - 1 - 1; j++){
+//       let a = values[j];
+//       let b = values[j + 1];
+//       if (a > b) {
+//         bubbleswap(values, j, j +1);
+//       }
+//     }
+//   } else {
+//     console.log("finished");
+//     noLoop();
+//   }
+//   i++;
+
+//   for (let i = 0, i < values.length; i++){
+//     stroke(255);
+//     line(i, height, i, height - values[i]);
+//   }
+// }
 
 async function quickSort(arr, start, end) {
   if (start >= end) {
@@ -80,3 +100,5 @@ async function swap(arr, a, b) {
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+
