@@ -13,26 +13,24 @@ function setup() {
   }
 }
 
-// async function bubblesort(){
-//   if (i < values.length){
-//     for ( let j = 0; j < values.length - 1 - 1; j++){
-//       let a = values[j];
-//       let b = values[j + 1];
-//       if (a > b) {
-//         bubbleswap(values, j, j +1);
-//       }
-//     }
-//   } else {
-//     console.log("finished");
-//     noLoop();
-//   }
-//   i++;
+async function bubblesort(arr){
+  for(let i = 0; i < arr.length();i++){
+    for(let j = 0; j < (arr.length () -i - 1); j++){
+      if(arr[j] > arr[j+1]){
+        var temp = arr[j];
+        arr[j] = arr[j+1];
+        arr[j+1] = temp;
+      }
+    }
+  }
+}
 
-//   for (let i = 0, i < values.length; i++){
-//     stroke(255);
-//     line(i, height, i, height - values[i]);
-//   }
-// }
+async function reset(){
+  for(let i = 0; i < values.length; i++){
+    values[i] = random(height);
+    states[i] = -1;
+  }
+}
 
 async function quickSort(arr, start, end) {
   if (start >= end) {
