@@ -13,24 +13,46 @@ function setup() {
   }
 }
 
-async function bubblesort(arr){
-  for(let i = 0; i < arr.length();i++){
-    for(let j = 0; j < (arr.length () -i - 1); j++){
-      if(arr[j] > arr[j+1]){
-        var temp = arr[j];
-        arr[j] = arr[j+1];
-        arr[j+1] = temp;
-      }
-    }
-  }
-}
-
 async function reset(){
   for(let i = 0; i < values.length; i++){
     values[i] = random(height);
     states[i] = -1;
   }
 }
+
+async function bubblesort(arr){
+  let index;
+  for(let i = 0; i < arr.length;i++){
+    for(let j = 0; j < (arr.length -i - 1); j++){
+      if(arr[j] > arr[j+1]){
+        var temp = arr[j];
+        arr[j] = arr[j+1];
+        arr[j+1] = temp;
+        index = await partition(arr, j, i.length);
+        states[index] = -1
+      }
+    }
+  }
+}
+
+async function insertionSort(arr){
+  let i, key, j, index;
+  let n = arr.length
+  for(i = 1; i < n; i++){
+    key = arr[i];
+    j = i - 1;
+
+    while(j >= 0 && arr[j] > key){
+      arr[j+1] = arr[j];
+      j = j - 1;
+
+    }
+    arr[j+1] = key;
+    index = await partition(arr, key, i.length);
+    states[index] = -1
+  }
+}
+
 
 async function quickSort(arr, start, end) {
   if (start >= end) {
